@@ -4,8 +4,7 @@
 #include <vector>
 
 /// The main Address Book implementation. Extend as required.
-class AddressBook
-{
+class AddressBook {
 public:
 	/// A container for address book data
 	struct Entry
@@ -15,11 +14,13 @@ public:
 		std::string phone_number;
 	};
 
+	std::vector<Entry> entries;
+
 	/// Add an entry. Implement in address_book.cpp.
 	void add(Entry person);
 
 	/// Remove an entry. Implement in address_book.cpp.
-	void remove(Entry person);
+	void removePerson(Entry person);
 
 	/// Return all entries sorted by first names. Implement in address_book.cpp.
 	std::vector<Entry> sortedByFirstName();

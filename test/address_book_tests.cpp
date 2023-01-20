@@ -40,7 +40,7 @@ TEST(AddressBookTests, AddPerson)
 	// There should only be 1 entry in the results
 	ASSERT_EQ(results.size(), 1);
 
-	// Validate that the name and phoen number is correct
+	// Validate that the name and phone number is correct
 	ASSERT_EQ(results[0].first_name, people[0][0]);
 	ASSERT_EQ(results[0].last_name, people[0][1]);
 	ASSERT_EQ(results[0].phone_number, people[0][2]);
