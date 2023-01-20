@@ -7,8 +7,9 @@ void AddressBook::add(AddressBook::Entry person){
 	throw std::runtime_error("Not implemented");
 }
 
-void AddressBook::removePerson(AddressBook::Entry person) {
-	//entries.erase(remove(entries.begin(), entries.end(), person), entries.end());
+void AddressBook::remove(AddressBook::Entry person) {
+	auto it = remove_if(entries.begin(), entries.end(), [person](Entry p) {return person.first_name == p.first_name; });
+	entries.erase(it, entries.end());
 	throw std::runtime_error("Not implemented");
 }
 

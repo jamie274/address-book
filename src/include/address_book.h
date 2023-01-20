@@ -20,7 +20,7 @@ public:
 	void add(Entry person);
 
 	/// Remove an entry. Implement in address_book.cpp.
-	void removePerson(Entry person);
+	void remove(Entry person);
 
 	/// Return all entries sorted by first names. Implement in address_book.cpp.
 	std::vector<Entry> sortedByFirstName();
