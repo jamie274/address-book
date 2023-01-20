@@ -143,6 +143,7 @@ TEST(AddressBookTests, FindPerson)
 
 
 int main(int argc, char** argv) {
+	//tests
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
 }
