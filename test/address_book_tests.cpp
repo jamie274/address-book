@@ -134,9 +134,38 @@ TEST(AddressBookTests, FindPerson)
 	ASSERT_EQ(results[0].phone_number, "+44 7700 900297");
 }
  
+
+/* Tests that an entry can be found in the address bookand that the search criteria is case insensitive
+   e.g. find("Jayden") will have the same return value as find("jayden") */
  TEST(AddressBookTests, CaseInsensitive)
  {
- 	 
+	 // Populate the address book
+	 AddressBook ab = AddTestPeople();
+
+	 /* Find a person whose name is, or starts with "Jayden", "JAYDEN" and "jayden"
+	    these 3 tests shoudl return the same entry */
+	 std::vector<AddressBook::Entry> results1 = ab.find("Jayden");
+	 std::vector<AddressBook::Entry> results2 = ab.find("JAYDEN");
+	 std::vector<AddressBook::Entry> results3 = ab.find("jayden");
+
+	 // There should only be exactly 1 entry in results1, results2 and results3 
+	 ASSERT_EQ(results1.size(), 1);
+	 ASSERT_EQ(results2.size(), 1);
+	 ASSERT_EQ(results3.size(), 1);
+
+	 /* Validate that the result is the entry we expected for all 3 tests
+		All 3 tests should have the same first_name, last_name and phone_number */
+	 ASSERT_EQ(results1[0].first_name, "Jayden");
+	 ASSERT_EQ(results1[0].last_name, "Riddle");
+	 ASSERT_EQ(results1[0].phone_number, "+44 131 496 0609");
+
+	 ASSERT_EQ(results2[0].first_name, "Jayden");
+	 ASSERT_EQ(results2[0].last_name, "Riddle");
+	 ASSERT_EQ(results2[0].phone_number, "+44 131 496 0609");
+
+	 ASSERT_EQ(results3[0].first_name, "Jayden");
+	 ASSERT_EQ(results3[0].last_name, "Riddle");
+	 ASSERT_EQ(results3[0].phone_number, "+44 131 496 0609");
  }
 
 

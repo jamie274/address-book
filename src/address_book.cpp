@@ -32,6 +32,7 @@ std::vector<AddressBook::Entry> AddressBook::sortedByLastName() {
 	return entries; // entries vector is returned
 }
 
+// converts given name to lowercase so that it is case insensitive when compared to find matching entries
 std::string AddressBook::lowerCase(std::string name) {
 	for (char& letter : name) {
 		letter = (char)tolower(letter);
@@ -40,12 +41,13 @@ std::string AddressBook::lowerCase(std::string name) {
 }
 
 std::vector<AddressBook::Entry> AddressBook::find(const std::string& name) {
-	std::string n = lowerCase(name);
+	std::string n = lowerCase(name); // convert given name to lowercase 
 	std::vector<Entry> matchingEntries; // new vector created to store matching entries
-	for (const auto &entry : entries) { // ranged for loop used to traverse the collection of entries in the vector (entries)
-		/* rfind built in function used to check if the first or last names start with the given string name
-		(name, 0) == 0 : name is passed and so is 0 as the name is checked from the beginning. 0 is checked as the return value to see if
-		the given name string is contained at the beginning of the first or last name of the entry*/
+	for (const auto &entry : entries) { 
+		/* rfind function used to check if the first or last names start with the given name
+			(n, 0) == 0 : lowercase name is passed and so is 0 as the name is checked from the beginning. 0 is checked as the return value to see if
+			the given name string is contained at the beginning of the first or last name of the entry */
+		// lowercase name is compared with another lowercase name to ensure case insensitivity
 		if (lowerCase(entry.last_name).rfind(n, 0) == 0 || lowerCase(entry.first_name).rfind(n, 0) == 0) { 
 			matchingEntries.push_back(entry); // entry is added to vector (matchingEntries) if found
 		}
