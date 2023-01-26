@@ -23,14 +23,14 @@ public:
 
 	/// Remove an entry
 	void remove(Entry person);
-
+	
 	/// Return all entries sorted by first names
 	std::vector<Entry> sortedByFirstName();
 
 	/// Return all entries sorted by last names
 	std::vector<Entry> sortedByLastName();
 
-	// changes names to lower case to ensure the find function is case insensitive
+	// change names to lower case to ensure the find function is case insensitive
 	// e.g. find("Sally") and find("sally") will have the same result
 	std::string lowerCase(std::string name);
 

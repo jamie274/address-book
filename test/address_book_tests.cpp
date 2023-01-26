@@ -135,7 +135,7 @@ TEST(AddressBookTests, FindPerson)
 }
  
 
-/* Tests that an entry can be found in the address bookand that the search criteria is case insensitive
+/* Tests that an entry can be found in the address book and that the search criteria is case insensitive
    e.g. find("Jayden") will have the same return value as find("jayden") */
  TEST(AddressBookTests, CaseInsensitive)
  {
@@ -143,7 +143,7 @@ TEST(AddressBookTests, FindPerson)
 	 AddressBook ab = AddTestPeople();
 
 	 /* Find a person whose name is, or starts with "Jayden", "JAYDEN" and "jayden"
-	    these 3 tests shoudl return the same entry */
+	    these 3 tests should return the same entry */
 	 std::vector<AddressBook::Entry> results1 = ab.find("Jayden");
 	 std::vector<AddressBook::Entry> results2 = ab.find("JAYDEN");
 	 std::vector<AddressBook::Entry> results3 = ab.find("jayden");
