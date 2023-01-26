@@ -3,7 +3,7 @@
 #include <algorithm>
 
 void AddressBook::add(AddressBook::Entry person){
-	entries.push_back(person); // adds person entry to entries vector
+	entries.push_back(person); // adds person entry to vector (entries)
 }
 
 void AddressBook::remove(AddressBook::Entry person) {
@@ -32,13 +32,21 @@ std::vector<AddressBook::Entry> AddressBook::sortedByLastName() {
 	return entries; // entries vector is returned
 }
 
+std::string AddressBook::lowerCase(std::string name) {
+	for (char& letter : name) {
+		letter = (char)tolower(letter);
+	}
+	return name;
+}
+
 std::vector<AddressBook::Entry> AddressBook::find(const std::string& name) {
+	std::string n = lowerCase(name);
 	std::vector<Entry> matchingEntries; // new vector created to store matching entries
 	for (const auto &entry : entries) { // ranged for loop used to traverse the collection of entries in the vector (entries)
 		/* rfind built in function used to check if the first or last names start with the given string name
 		(name, 0) == 0 : name is passed and so is 0 as the name is checked from the beginning. 0 is checked as the return value to see if
 		the given name string is contained at the beginning of the first or last name of the entry*/
-		if (entry.last_name.rfind(name, 0) == 0 || entry.first_name.rfind(name, 0) == 0) { 
+		if (lowerCase(entry.last_name).rfind(n, 0) == 0 || lowerCase(entry.first_name).rfind(n, 0) == 0) { 
 			matchingEntries.push_back(entry); // entry is added to vector (matchingEntries) if found
 		}
 	}

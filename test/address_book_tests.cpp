@@ -133,13 +133,11 @@ TEST(AddressBookTests, FindPerson)
 	ASSERT_EQ(results[0].last_name, "Graham");
 	ASSERT_EQ(results[0].phone_number, "+44 7700 900297");
 }
-
-/// Add more tests here:
-/// 
-/// TEST(AddressBookTests, YOUR_TEST_NAME)
-/// {
-/// 	// Perform some test logic
-/// }
+ 
+ TEST(AddressBookTests, CaseInsensitive)
+ {
+ 	 
+ }
 
 
 int main(int argc, char** argv) {

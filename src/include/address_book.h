@@ -15,6 +15,7 @@ public:
 	};
 
 	// vector container for the collection of entries in the address book
+	// new entries will be added to this vector
 	std::vector<Entry> entries;
 
 	/// Add an entry
@@ -28,6 +29,10 @@ public:
 
 	/// Return all entries sorted by last names
 	std::vector<Entry> sortedByLastName();
+
+	// changes names to lower case to ensure the find function is case insensitive
+	// e.g. find("Sally") and find("sally") will have the same result
+	std::string lowerCase(std::string name);
 
 	/// Return all matching entries
 	std::vector<Entry> find(const std::string & name);
